@@ -187,11 +187,11 @@
               })
 
               // 跳转到我的页面
-              setTimeout(function() {
-                wepy.switchTab({
-                  url: '/pages/user'
-                })
-              }, 2000)
+                        setTimeout(function() {
+                          wepy.switchTab({
+                            url: '/pages/users/me'
+                          })
+                        }, 2000)
             }
           } catch (err) {
             console.log(err)

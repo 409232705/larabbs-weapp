@@ -1,6 +1,7 @@
 const path = require('path');
 var prod = process.env.NODE_ENV === 'production';
 
+
 module.exports = {
   wpyExt: '.wpy',
   eslint: true,
@@ -41,6 +42,13 @@ module.exports = {
     }
   },
   plugins: {
+    replace: {
+      filter: /\.js$/,
+      config: {
+        find: /__BASE_URL__/g,
+        replace: prod ? "'https://weapp.laravel-china.org/api'" : "'http://larabbs.test/api'"
+      }
+    }
   },
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']
@@ -68,6 +76,13 @@ if (prod) {
         png: {
           quality: 80
         }
+      }
+    },
+    replace: {
+      filter: /\.js$/,
+      config: {
+        find: /__BASE_URL__/g,
+        replace: prod ? "'https://weapp.laravel-china.org/api'" : "'http://larabbs.test/api'"
       }
     }
   }

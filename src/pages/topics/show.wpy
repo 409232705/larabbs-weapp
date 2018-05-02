@@ -1,4 +1,11 @@
 <style lang="less">
+.create-reply {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
 page{
     background-color: #FFFFFF;
 }
@@ -74,6 +81,10 @@ page{
                                   <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                                 </navigator>
                       </view>
+                      <!-- 回复按钮 -->
+                            <navigator url="/pages/replies/create?topic_id={{ topic.id }}">
+                              <image src="/images/reply.png" class="create-reply" />
+                            </navigator>
                     </view>
             </view>
 
@@ -148,6 +159,11 @@ page{
           this.user = await this.$parent.getCurrentUser()
           this.$apply()
         }
+         async onShow() {
+              this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
+                this.getTopic(this.topic.id)
+              })
+            }
 
          methods = {
                async deleteTopic() {

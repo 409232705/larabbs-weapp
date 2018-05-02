@@ -83,6 +83,7 @@
           return
         }
 
+
         // 获取用户名和密码
         let params = {
           username: this.username,
@@ -100,9 +101,11 @@
           }
 
           // 201 为登录正确，返回上一页
-          if (authResponse.statusCode === 201) {
-            wepy.navigateBack()
-          }
+                    if (authResponse.statusCode === 201) {
+                      // 获取用户权限
+                      this.$parent.getPerms()
+                      wepy.navigateBack()
+                    }
         } catch (err) {
           wepy.showModal({
             title: '提示',
@@ -118,9 +121,11 @@
         let authResponse = await api.login()
 
         // 登录成功返回上一页
-        if (authResponse.statusCode === 201) {
-          wepy.navigateBack()
-        }
+                if (authResponse.statusCode === 201) {
+                  // 获取用户权限
+                  this.$parent.getPerms()
+                  wepy.navigateBack()
+                }
       } catch (err) {
         wepy.showModal({
           title: '提示',

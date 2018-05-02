@@ -123,7 +123,7 @@
           this.markAsRead()
           wepy.stopPullDownRefresh()
         }
-    
+
     // 加载更多
     async onReachBottom () {
       // 没有更多数据或这在加载则返回

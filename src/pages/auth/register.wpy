@@ -185,6 +185,13 @@
                 title: '注册成功',
                 icon: 'success'
               })
+              // 获取用户权限
+                        this.$parent.getPerms()
+
+                        wepy.showToast({
+                          title: '注册成功',
+                          icon: 'success'
+                        })
 
               // 跳转到我的页面
                         setTimeout(function() {

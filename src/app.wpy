@@ -46,7 +46,9 @@ config = {
          'pages/users/edit',
          'pages/users/show',
          'pages/auth/login',
-         'pages/auth/register'
+         'pages/auth/register',
+         'pages/replies/index',
+         'pages/replies/userIndex'
        ],
     window: {
       backgroundTextStyle: 'light',
